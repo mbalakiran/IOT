@@ -1,0 +1,21 @@
+version: "2"
+services:
+  Node-Red:
+    container_name: bala-node-red
+    image: balakiran12/noderediot:1
+    ports: 
+      - 1880:1880
+    links:
+        - influxdb    
+    volumes:
+        - ./node-red:/var/lib/node-red  
+
+  influxdb:
+    container_name: bala-influxdb
+    image: balakiran12/influxdbiot:1
+    ports:
+      - "8086:8086"
+    volumes:
+      - ./influxdb:/var/lib/influxdb
+      - ./influxdb.conf:/etc/influxdb/influxdb.conf
+    restart: always

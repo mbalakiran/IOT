@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_f87c48000fb34b91a9695eeb1a8341a4 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_f87c48000fb34b91a9695eeb1a8341a4" ></div>
+        
+</body>
+<script>    
+    
+            var map_f87c48000fb34b91a9695eeb1a8341a4 = L.map(
+                "map_f87c48000fb34b91a9695eeb1a8341a4",
+                {
+                    center: [60.579, 15.0652],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 10,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_e2fc49ef7e06467f9c609f164a3d0698 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_f87c48000fb34b91a9695eeb1a8341a4);
+        
+    
+            var marker_6dc128ed616d4ab483faeead9fda90e5 = L.marker(
+                [60.579, 15.0652],
+                {}
+            ).addTo(map_f87c48000fb34b91a9695eeb1a8341a4);
+        
+    
+            var icon_11626c2dc454476bbdce9abdc1c4dbfc = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-45", "icon": "arrow-up", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_6dc128ed616d4ab483faeead9fda90e5.setIcon(icon_11626c2dc454476bbdce9abdc1c4dbfc);
+        
+    
+        var popup_5074ec7c170f430a96db056dfcc7fe8c = L.popup({"maxWidth": "100%"});
+
+        
+            var html_10263f41ca294c1780f0e483399c1bbb = $(`<div id="html_10263f41ca294c1780f0e483399c1bbb" style="width: 100.0%; height: 100.0%;">sensor_name:Elsys ELT2  app_id:campusborlangeelsys  install_time:19-10-19 19:54  adress:Gagnefsbyn  number:33  zip_code:78400  city:Gagnef  status:OK  activity:AccMotion, humidity, pressure, temperature, vdd, x, y, z</div>`)[0];
+            popup_5074ec7c170f430a96db056dfcc7fe8c.setContent(html_10263f41ca294c1780f0e483399c1bbb);
+        
+
+        marker_6dc128ed616d4ab483faeead9fda90e5.bindPopup(popup_5074ec7c170f430a96db056dfcc7fe8c)
+        ;
+
+        
+    
+    
+            marker_6dc128ed616d4ab483faeead9fda90e5.bindTooltip(
+                `<div>
+                     45
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_dcc14c98dab24be9bc5091ea55614905 = L.marker(
+                [60.4886, 15.3883],
+                {}
+            ).addTo(map_f87c48000fb34b91a9695eeb1a8341a4);
+        
+    
+            var icon_d2f75d288a8d4e119d658278f162295d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_dcc14c98dab24be9bc5091ea55614905.setIcon(icon_d2f75d288a8d4e119d658278f162295d);
+        
+    
+        var popup_b4981d4fedde494b9612c58ccdd2e439 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_65915c7a8fcb4c5ea4407cd35cb061ed = $(`<div id="html_65915c7a8fcb4c5ea4407cd35cb061ed" style="width: 100.0%; height: 100.0%;">sensor_name:Elsys ELT2  app_id:campusborlangeelsys  install_time:19-10-19 19:54  adress:Mats knuts vag  number:68  zip_code:78450  city:Borlange  status:OK  activity:AccMotion, humidity, pressure, temperature, vdd, x, y, z</div>`)[0];
+            popup_b4981d4fedde494b9612c58ccdd2e439.setContent(html_65915c7a8fcb4c5ea4407cd35cb061ed);
+        
+
+        marker_dcc14c98dab24be9bc5091ea55614905.bindPopup(popup_b4981d4fedde494b9612c58ccdd2e439)
+        ;
+
+        
+    
+    
+            var marker_1fd77915223d46ca911eb3f8b638d590 = L.marker(
+                [60.4878, 15.4088],
+                {}
+            ).addTo(map_f87c48000fb34b91a9695eeb1a8341a4);
+        
+    
+            var icon_a5fdbce6bff44c04b9e30814cf60cca7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_1fd77915223d46ca911eb3f8b638d590.setIcon(icon_a5fdbce6bff44c04b9e30814cf60cca7);
+        
+    
+        var popup_7d605b9b166741f1af1f855a884effc1 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_ac17a56215cf4e20b836434d4eb2fb6e = $(`<div id="html_ac17a56215cf4e20b836434d4eb2fb6e" style="width: 100.0%; height: 100.0%;">sensor_name:Elsys ERS CO2  app_id:campusborlangeelsys  install_time:19-10-19 20:54  adress:Roda vagen  number:3  zip_code:78400  city:Borlange  status:OK  activity:CO2, humidity, light, motion, temperature, vdd</div>`)[0];
+            popup_7d605b9b166741f1af1f855a884effc1.setContent(html_ac17a56215cf4e20b836434d4eb2fb6e);
+        
+
+        marker_1fd77915223d46ca911eb3f8b638d590.bindPopup(popup_7d605b9b166741f1af1f855a884effc1)
+        ;
+
+        
+    
+    
+            var marker_9a61970e4013494dbf9d1fd1e502006c = L.marker(
+                [60.4877, 15.4092],
+                {}
+            ).addTo(map_f87c48000fb34b91a9695eeb1a8341a4);
+        
+    
+            var icon_b0553aecee3042c6815ddcdadca73fd0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "envelope", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_9a61970e4013494dbf9d1fd1e502006c.setIcon(icon_b0553aecee3042c6815ddcdadca73fd0);
+        
+    
+        var popup_ac553534cb674f9bbc29e99552b5a3e1 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d44430f13a274b51b2670dbb64c1bf06 = $(`<div id="html_d44430f13a274b51b2670dbb64c1bf06" style="width: 100.0%; height: 100.0%;">sensor_name:Elsys ERS CO2  app_id:campusborlangeelsys  install_time:19-10-19 20:54  adress:Roda vagen  number:3  zip_code:78400  city:Borlange  status:OK  activity:CO2, humidity, light, motion, temperature, vdd</div>`)[0];
+            popup_ac553534cb674f9bbc29e99552b5a3e1.setContent(html_d44430f13a274b51b2670dbb64c1bf06);
+        
+
+        marker_9a61970e4013494dbf9d1fd1e502006c.bindPopup(popup_ac553534cb674f9bbc29e99552b5a3e1)
+        ;
+
+        
+    
+    
+            var marker_7cb81abcc65c47deba7d097eafc75eba = L.marker(
+                [60.4887, 15.3883],
+                {}
+            ).addTo(map_f87c48000fb34b91a9695eeb1a8341a4);
+        
+    
+            var icon_291d4f0a82dd43c4a3d3b8ab0a9c4455 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-90", "icon": "arrow-up", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_7cb81abcc65c47deba7d097eafc75eba.setIcon(icon_291d4f0a82dd43c4a3d3b8ab0a9c4455);
+        
+    
+        var popup_b1e1c17e7a724ae9b435a7873455ff76 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_81b7175a3e824c2cbd1def6242ef9b83 = $(`<div id="html_81b7175a3e824c2cbd1def6242ef9b83" style="width: 100.0%; height: 100.0%;">sensor_name:ESP32  app_id:hajo66-test  install_time:19-11-19 20:54  adress:Mats knuts vag  number:68  zip_code:78450  city:Borlange  status:OK  activity:PaxCounter</div>`)[0];
+            popup_b1e1c17e7a724ae9b435a7873455ff76.setContent(html_81b7175a3e824c2cbd1def6242ef9b83);
+        
+
+        marker_7cb81abcc65c47deba7d097eafc75eba.bindPopup(popup_b1e1c17e7a724ae9b435a7873455ff76)
+        ;
+
+        
+    
+    
+            marker_7cb81abcc65c47deba7d097eafc75eba.bindTooltip(
+                `<div>
+                     90
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f25f14a78a644b9ba8d5d752bdc363aa = L.marker(
+                [60.4888, 15.3883],
+                {}
+            ).addTo(map_f87c48000fb34b91a9695eeb1a8341a4);
+        
+    
+            var icon_527cef93be7443f892d2f1bdf35f5795 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-180", "icon": "arrow-up", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_f25f14a78a644b9ba8d5d752bdc363aa.setIcon(icon_527cef93be7443f892d2f1bdf35f5795);
+        
+    
+        var popup_d6cdac2707a5494b9afcc13e06dec60a = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d2b739e887fe4d7288d02dc2dfc02692 = $(`<div id="html_d2b739e887fe4d7288d02dc2dfc02692" style="width: 100.0%; height: 100.0%;">sensor_name:ESP32  app_id:hajo66-test  install_time:19-11-19 20:54  adress:Mats knuts vag  number:68  zip_code:78450  city:Borlange  status:OK  activity:humidity, pressure, temperature</div>`)[0];
+            popup_d6cdac2707a5494b9afcc13e06dec60a.setContent(html_d2b739e887fe4d7288d02dc2dfc02692);
+        
+
+        marker_f25f14a78a644b9ba8d5d752bdc363aa.bindPopup(popup_d6cdac2707a5494b9afcc13e06dec60a)
+        ;
+
+        
+    
+    
+            marker_f25f14a78a644b9ba8d5d752bdc363aa.bindTooltip(
+                `<div>
+                     180
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a4cb23a43793416e86b5337316b07cc2 = L.marker(
+                [60.4877, 15.409],
+                {}
+            ).addTo(map_f87c48000fb34b91a9695eeb1a8341a4);
+        
+    
+            var icon_944440a11d89415eb3769d68f55f4d42 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cloud", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_a4cb23a43793416e86b5337316b07cc2.setIcon(icon_944440a11d89415eb3769d68f55f4d42);
+        
+    
+        var popup_1d9cbf2854784abe9b9f6dd3869d5330 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d62abe3ddfa44797a8fd36b68ad00ce5 = $(`<div id="html_d62abe3ddfa44797a8fd36b68ad00ce5" style="width: 100.0%; height: 100.0%;">sensor_name:Arduino  app_id:hajo66-test  install_time:19-10-01 20:54  adress:Roda vagen  number:3  zip_code:78400  city:Borlange  status:FAIL  activity:MQTT-test</div>`)[0];
+            popup_1d9cbf2854784abe9b9f6dd3869d5330.setContent(html_d62abe3ddfa44797a8fd36b68ad00ce5);
+        
+
+        marker_a4cb23a43793416e86b5337316b07cc2.bindPopup(popup_1d9cbf2854784abe9b9f6dd3869d5330)
+        ;
+
+        
+    
+</script>

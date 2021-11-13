@@ -1,0 +1,5 @@
+FIFA World Cup 2018 Best XI: Analyzing Fifa Dataset Using Python
+
+https://www.edureka.co/blog/football-world-cup-best-xi-analysis-using-python/
+
+https://www.kaggle.com/artimous/complete-fifa-2017-player-dataset-global/data

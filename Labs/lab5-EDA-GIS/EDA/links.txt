@@ -1,0 +1,13 @@
+The Why And How Of Exploratory Data Analysis In Python: https://www.edureka.co/blog/exploratory-data-analysis-in-python/ ﻿
+Exploratory Data Analysis, Feature Engineering and Modelling using Supermarket Sales Data. Part 1 and Part 2: https://towardsdatascience.com/exploratory-data-analysis-feature-engineering-and-modelling-using-supermarket-sales-data-part-1-228140f89298
+A Gentle Introduction to Exploratory Data Analysis: https://www.mrdbourke.com/a-gentle-introduction-to-exploratory-data-analysis/amp/
+EXPLORATORY DATA ANALYSIS: PANDAS FRAMEWORK ON A REAL DATASET: http://www.datastuff.tech/data-analysis/exploratory-data-analysis-pandas-seaborn/
+pythonprogramming.net: https://pythonprogramming.net/ > Data Analysis
+Kaggle courses, datasets and notebooks: https://www.kaggle.com/
+ as Sensor Time-Series Analysis: https://www.kaggle.com/malekzadeh/smart-home-data-processing-weather-vs-energy
+Selecting Subsets of Data in Pandas: https://medium.com/dunder-data/selecting-subsets-of-data-in-pandas-6fcd0170be9c
+Optimum approach for iterating over a DataFrame: ﻿﻿﻿ https://medium.com/@rtjeannier/pandas-101-cont-9d061cb73bfc
+How to Perform Exploratory Data Analysis with Seaborn﻿: https://towardsdatascience.com/how-to-perform-exploratory-data-analysis-with-seaborn-97e3413e841d ﻿
+Hitchhiker's guide to Exploratory Data Analysis﻿: https://towardsdatascience.com/hitchhikers-guide-to-exploratory-data-analysis-6e8d896d3f7e ﻿
+Exploratory Data Analysis:﻿ https://towardsdatascience.com/exploratory-data-analysis-an-illustration-in-python-9926816d2556 ﻿
+﻿Data Analysis with Python course: ﻿ https://next.tech/catalog/data-analysis-with-python 

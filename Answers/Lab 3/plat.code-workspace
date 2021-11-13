@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "Blink Arduino Uno",
+			"path": "..\\..\\..\\..\\Documents\\PlatformIO\\Projects\\Blink Arduino Uno"
+		},
+		{
+			"name": "platformide",
+			"path": "..\\..\\..\\..\\Documents\\PlatformIO\\Projects\\platformide"
+		}
+	],
+	"settings": {}
+}

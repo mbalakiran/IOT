@@ -1,0 +1,1543 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_4fcc92743ec44c5eb3d5792a2080e14f {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+     <div style="
+     position: fixed; 
+     bottom: 50px; left: 50px; width: 200px; height: 160px; 
+     border:2px solid grey; z-index:9999; 
+     
+     opacity: .85;
+     
+     font-size:14px;
+     font-weight: bold;
+     
+     ">
+    <p><a style="color:#e6194b;font-size:150%;margin-left:20px;"></a><strong>Legend</strong></p>
+    <p><a style="color:#e6194b;font-size:150%;margin-left:20px;"></a><strong>From CSV File <i class="fa fa-map-marker fa-2x" style="color:green"></i></strong></p>
+    <p><a style="color:#19e6b4;font-size:150%;margin-left:20px;"></a><strong>From API Calling <img src="gateway.png" style="width:40px;height:40px"></strong></p>
+
+      </div> 
+    
+            <div class="folium-map" id="map_4fcc92743ec44c5eb3d5792a2080e14f" ></div>
+        
+</body>
+<script>    
+    
+            var map_4fcc92743ec44c5eb3d5792a2080e14f = L.map(
+                "map_4fcc92743ec44c5eb3d5792a2080e14f",
+                {
+                    center: [60.579, 15.0652],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 10,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_0358034d1d0d4c58ada673040689b27e = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var marker_a4b426afdb4845fa8c07e8e08833d99d = L.marker(
+                [60.579, 15.0652],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var icon_6c316a7cf01448e5a3d0b9372937a2ea = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_a4b426afdb4845fa8c07e8e08833d99d.setIcon(icon_6c316a7cf01448e5a3d0b9372937a2ea);
+        
+    
+        var popup_2c42feb14ceb4fb18c5c7b410caef7bb = L.popup({"maxWidth": "100%"});
+
+        
+            var html_2d83b8dd950b4b7ab1af64802371272b = $(`<div id="html_2d83b8dd950b4b7ab1af64802371272b" style="width: 100.0%; height: 100.0%;">sensor_name:Elsys ELT2  app_id:campusborlangeelsys      install_time:19-10-19 19:54  adress:Gagnefsbyn      number:33  zip_code:78400      city:Gagnef  status:OK  activity:AccMotion, humidity, pressure, temperature, vdd, x, y, z</div>`)[0];
+            popup_2c42feb14ceb4fb18c5c7b410caef7bb.setContent(html_2d83b8dd950b4b7ab1af64802371272b);
+        
+
+        marker_a4b426afdb4845fa8c07e8e08833d99d.bindPopup(popup_2c42feb14ceb4fb18c5c7b410caef7bb)
+        ;
+
+        
+    
+    
+            var marker_4bf91abce8dd4fd6ac06ace4ad864acd = L.marker(
+                [60.4886, 15.3883],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var icon_afc0705c6bc9413d928de8bd799c903a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_4bf91abce8dd4fd6ac06ace4ad864acd.setIcon(icon_afc0705c6bc9413d928de8bd799c903a);
+        
+    
+        var popup_75c058e7d4b24346bd36640d1b4882cc = L.popup({"maxWidth": "100%"});
+
+        
+            var html_72788260b8e349bdb862208a6d9faf9f = $(`<div id="html_72788260b8e349bdb862208a6d9faf9f" style="width: 100.0%; height: 100.0%;">sensor_name:Elsys ELT2  app_id:campusborlangeelsys      install_time:19-10-19 19:54  adress:Mats knuts vag      number:68  zip_code:78450      city:Borlange  status:OK  activity:AccMotion, humidity, pressure, temperature, vdd, x, y, z</div>`)[0];
+            popup_75c058e7d4b24346bd36640d1b4882cc.setContent(html_72788260b8e349bdb862208a6d9faf9f);
+        
+
+        marker_4bf91abce8dd4fd6ac06ace4ad864acd.bindPopup(popup_75c058e7d4b24346bd36640d1b4882cc)
+        ;
+
+        
+    
+    
+            var marker_2f2fa4c11e69459aa13d1d1f0669ac0b = L.marker(
+                [60.4878, 15.4088],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var icon_bf70774ad0be482b94d168f539102961 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_2f2fa4c11e69459aa13d1d1f0669ac0b.setIcon(icon_bf70774ad0be482b94d168f539102961);
+        
+    
+        var popup_2a77185e2dae48e391afd707a25f8639 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_75db0c55c8514c1188edc20bfdcfd523 = $(`<div id="html_75db0c55c8514c1188edc20bfdcfd523" style="width: 100.0%; height: 100.0%;">sensor_name:Elsys ERS CO2  app_id:campusborlangeelsys      install_time:19-10-19 20:54  adress:Roda vagen      number:3  zip_code:78400      city:Borlange  status:OK  activity:CO2, humidity, light, motion, temperature, vdd</div>`)[0];
+            popup_2a77185e2dae48e391afd707a25f8639.setContent(html_75db0c55c8514c1188edc20bfdcfd523);
+        
+
+        marker_2f2fa4c11e69459aa13d1d1f0669ac0b.bindPopup(popup_2a77185e2dae48e391afd707a25f8639)
+        ;
+
+        
+    
+    
+            var marker_89b61100cb104119873ca7c95920d3c2 = L.marker(
+                [60.4877, 15.4092],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var icon_f43f91deb31141849b9ec15b20307518 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_89b61100cb104119873ca7c95920d3c2.setIcon(icon_f43f91deb31141849b9ec15b20307518);
+        
+    
+        var popup_e11634c634de455ebc0de997b42e49ce = L.popup({"maxWidth": "100%"});
+
+        
+            var html_bb90647366a54a639cdbc6354803f262 = $(`<div id="html_bb90647366a54a639cdbc6354803f262" style="width: 100.0%; height: 100.0%;">sensor_name:Elsys ERS CO2  app_id:campusborlangeelsys      install_time:19-10-19 20:54  adress:Roda vagen      number:3  zip_code:78400      city:Borlange  status:OK  activity:CO2, humidity, light, motion, temperature, vdd</div>`)[0];
+            popup_e11634c634de455ebc0de997b42e49ce.setContent(html_bb90647366a54a639cdbc6354803f262);
+        
+
+        marker_89b61100cb104119873ca7c95920d3c2.bindPopup(popup_e11634c634de455ebc0de997b42e49ce)
+        ;
+
+        
+    
+    
+            var marker_21346086fffa4e9fb6999b7683434148 = L.marker(
+                [60.4887, 15.3883],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var icon_df104a4921c34e55a1e5bbb708d0bfca = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_21346086fffa4e9fb6999b7683434148.setIcon(icon_df104a4921c34e55a1e5bbb708d0bfca);
+        
+    
+        var popup_c15c44de2d1a46ecbda561ebf3750fc5 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_685b288699f24b32a8791d5a9334381e = $(`<div id="html_685b288699f24b32a8791d5a9334381e" style="width: 100.0%; height: 100.0%;">sensor_name:ESP32  app_id:hajo66-test      install_time:19-11-19 20:54  adress:Mats knuts vag      number:68  zip_code:78450      city:Borlange  status:OK  activity:PaxCounter</div>`)[0];
+            popup_c15c44de2d1a46ecbda561ebf3750fc5.setContent(html_685b288699f24b32a8791d5a9334381e);
+        
+
+        marker_21346086fffa4e9fb6999b7683434148.bindPopup(popup_c15c44de2d1a46ecbda561ebf3750fc5)
+        ;
+
+        
+    
+    
+            var marker_0424eb49df79411eb122c48342598265 = L.marker(
+                [60.4888, 15.3883],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var icon_e37bc28d0b4c426ba6f0c7dc0a0db79f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_0424eb49df79411eb122c48342598265.setIcon(icon_e37bc28d0b4c426ba6f0c7dc0a0db79f);
+        
+    
+        var popup_e939ef84f6484e938ea621c89bf2a92a = L.popup({"maxWidth": "100%"});
+
+        
+            var html_fceea02097cf41b197fcaed1ba651a6a = $(`<div id="html_fceea02097cf41b197fcaed1ba651a6a" style="width: 100.0%; height: 100.0%;">sensor_name:ESP32  app_id:hajo66-test      install_time:19-11-19 20:54  adress:Mats knuts vag      number:68  zip_code:78450      city:Borlange  status:OK  activity:humidity, pressure, temperature</div>`)[0];
+            popup_e939ef84f6484e938ea621c89bf2a92a.setContent(html_fceea02097cf41b197fcaed1ba651a6a);
+        
+
+        marker_0424eb49df79411eb122c48342598265.bindPopup(popup_e939ef84f6484e938ea621c89bf2a92a)
+        ;
+
+        
+    
+    
+            var marker_fd01b12e618b421c973754d95aa60578 = L.marker(
+                [60.4877, 15.409],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var icon_ce32f7a137fe4ea7a71b00da66052085 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_fd01b12e618b421c973754d95aa60578.setIcon(icon_ce32f7a137fe4ea7a71b00da66052085);
+        
+    
+        var popup_9cdfc9e5d6b24caf8335e3b2bc3b0d12 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b2b473a3f2784825871f4cc1dde54b78 = $(`<div id="html_b2b473a3f2784825871f4cc1dde54b78" style="width: 100.0%; height: 100.0%;">sensor_name:Arduino  app_id:hajo66-test      install_time:19-10-01 20:54  adress:Roda vagen      number:3  zip_code:78400      city:Borlange  status:FAIL  activity:MQTT-test</div>`)[0];
+            popup_9cdfc9e5d6b24caf8335e3b2bc3b0d12.setContent(html_b2b473a3f2784825871f4cc1dde54b78);
+        
+
+        marker_fd01b12e618b421c973754d95aa60578.bindPopup(popup_9cdfc9e5d6b24caf8335e3b2bc3b0d12)
+        ;
+
+        
+    
+    
+            var marker_a9ae79d2386e40ce995bc67d88ec7645 = L.marker(
+                [59.48198465, 18.28747217],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_4f9aa2bca2d142c38243e7cc583b8654 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_a9ae79d2386e40ce995bc67d88ec7645.setIcon(div_icon_4f9aa2bca2d142c38243e7cc583b8654);
+        
+    
+        var popup_3431b03b6b0647f29d89f6803172035c = L.popup({"maxWidth": "100%"});
+
+        
+            var html_20158f232b6e49be8a991baf7e94b40b = $(`<div id="html_20158f232b6e49be8a991baf7e94b40b" style="width: 100.0%; height: 100.0%;">last_seen: 2021-04-23T15:25:40Z brand: The Things Products</div>`)[0];
+            popup_3431b03b6b0647f29d89f6803172035c.setContent(html_20158f232b6e49be8a991baf7e94b40b);
+        
+
+        marker_a9ae79d2386e40ce995bc67d88ec7645.bindPopup(popup_3431b03b6b0647f29d89f6803172035c)
+        ;
+
+        
+    
+    
+            var marker_04c580b7805c484a85ac8c3058ac87fe = L.marker(
+                [59.29041045, 17.9518368],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_662c02ce980c4d44a77827ac59fc0336 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_04c580b7805c484a85ac8c3058ac87fe.setIcon(div_icon_662c02ce980c4d44a77827ac59fc0336);
+        
+    
+        var popup_1f7b8da750a34fab8c5cfc82ea5ea2db = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b610e34f6d1c496998353ac0eb4fd9b8 = $(`<div id="html_b610e34f6d1c496998353ac0eb4fd9b8" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:23Z brand: The Things Products</div>`)[0];
+            popup_1f7b8da750a34fab8c5cfc82ea5ea2db.setContent(html_b610e34f6d1c496998353ac0eb4fd9b8);
+        
+
+        marker_04c580b7805c484a85ac8c3058ac87fe.bindPopup(popup_1f7b8da750a34fab8c5cfc82ea5ea2db)
+        ;
+
+        
+    
+    
+            var marker_cb91bf208d084ffd80e2a5feb6ac1fef = L.marker(
+                [59.3101554, 18.00452202],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_c804b34957994d0f8a5535a428009e52 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_cb91bf208d084ffd80e2a5feb6ac1fef.setIcon(div_icon_c804b34957994d0f8a5535a428009e52);
+        
+    
+        var popup_c82c85b785494afa8f4937b6b2d943a4 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d3466939ec0e40f384680a0cda4122ee = $(`<div id="html_d3466939ec0e40f384680a0cda4122ee" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-03T05:59:14Z brand: The Things Products</div>`)[0];
+            popup_c82c85b785494afa8f4937b6b2d943a4.setContent(html_d3466939ec0e40f384680a0cda4122ee);
+        
+
+        marker_cb91bf208d084ffd80e2a5feb6ac1fef.bindPopup(popup_c82c85b785494afa8f4937b6b2d943a4)
+        ;
+
+        
+    
+    
+            var marker_dde9034ecd6e45d4b0f1bf83a8e90380 = L.marker(
+                [59.27268801, 15.20946385],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_5c218674fc9e409cb4499f529dfd1c1f = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_dde9034ecd6e45d4b0f1bf83a8e90380.setIcon(div_icon_5c218674fc9e409cb4499f529dfd1c1f);
+        
+    
+        var popup_a18c8c9f5c0c425ea5c292b1dcfd9988 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_521e56ffeeb14ba384201c28990e8664 = $(`<div id="html_521e56ffeeb14ba384201c28990e8664" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:23Z brand: The Things Products</div>`)[0];
+            popup_a18c8c9f5c0c425ea5c292b1dcfd9988.setContent(html_521e56ffeeb14ba384201c28990e8664);
+        
+
+        marker_dde9034ecd6e45d4b0f1bf83a8e90380.bindPopup(popup_a18c8c9f5c0c425ea5c292b1dcfd9988)
+        ;
+
+        
+    
+    
+            var marker_edcac31446a1405f90a85e1d551a476c = L.marker(
+                [59.6114061, 16.54089276],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_8d1c7ca207564790bf8265713bbe0114 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_edcac31446a1405f90a85e1d551a476c.setIcon(div_icon_8d1c7ca207564790bf8265713bbe0114);
+        
+    
+        var popup_8bcd2d3935ae4acf8eb2a0c37051431e = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c27992abb6c644448faf467b6a48e341 = $(`<div id="html_c27992abb6c644448faf467b6a48e341" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-04T07:08:54Z brand: Laird</div>`)[0];
+            popup_8bcd2d3935ae4acf8eb2a0c37051431e.setContent(html_c27992abb6c644448faf467b6a48e341);
+        
+
+        marker_edcac31446a1405f90a85e1d551a476c.bindPopup(popup_8bcd2d3935ae4acf8eb2a0c37051431e)
+        ;
+
+        
+    
+    
+            var marker_84f62b3b8bb04b1cbdec132f03cc2b44 = L.marker(
+                [60.48746109008789, 15.409642219543457],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_5be31fe39c1348e1ae7b3e4f217889fb = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_84f62b3b8bb04b1cbdec132f03cc2b44.setIcon(div_icon_5be31fe39c1348e1ae7b3e4f217889fb);
+        
+    
+        var popup_d7162b8247224cf7a5a3ff09bd540f60 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_85b5f775e44942f493cab8e5202ccedf = $(`<div id="html_85b5f775e44942f493cab8e5202ccedf" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:14Z brand: Gemtek</div>`)[0];
+            popup_d7162b8247224cf7a5a3ff09bd540f60.setContent(html_85b5f775e44942f493cab8e5202ccedf);
+        
+
+        marker_84f62b3b8bb04b1cbdec132f03cc2b44.bindPopup(popup_d7162b8247224cf7a5a3ff09bd540f60)
+        ;
+
+        
+    
+    
+            var marker_0308140f260e49eebdffb42b5543cf9e = L.marker(
+                [60.01525782, 13.73019416],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_e19cf0b746354c319de06be9a73094ff = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_0308140f260e49eebdffb42b5543cf9e.setIcon(div_icon_e19cf0b746354c319de06be9a73094ff);
+        
+    
+        var popup_b4dea5f655934ee78f28d0636bdf33b5 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_4dea24cbec4847cf8eddcb41926e68d5 = $(`<div id="html_4dea24cbec4847cf8eddcb41926e68d5" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:09Z brand: Gemtek</div>`)[0];
+            popup_b4dea5f655934ee78f28d0636bdf33b5.setContent(html_4dea24cbec4847cf8eddcb41926e68d5);
+        
+
+        marker_0308140f260e49eebdffb42b5543cf9e.bindPopup(popup_b4dea5f655934ee78f28d0636bdf33b5)
+        ;
+
+        
+    
+    
+            var marker_2af37563b7e745639aef55c328ee7048 = L.marker(
+                [59.273536682128906, 18.000097274780273],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_858bbc00a29a46ad9834d1dab1778251 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_2af37563b7e745639aef55c328ee7048.setIcon(div_icon_858bbc00a29a46ad9834d1dab1778251);
+        
+    
+        var popup_7657ace46120414ca20d5e79c17fc24f = L.popup({"maxWidth": "100%"});
+
+        
+            var html_1804a0193a8447f59d1c7b999b117244 = $(`<div id="html_1804a0193a8447f59d1c7b999b117244" style="width: 100.0%; height: 100.0%;">last_seen: 2021-04-14T18:05:36Z brand: nan</div>`)[0];
+            popup_7657ace46120414ca20d5e79c17fc24f.setContent(html_1804a0193a8447f59d1c7b999b117244);
+        
+
+        marker_2af37563b7e745639aef55c328ee7048.bindPopup(popup_7657ace46120414ca20d5e79c17fc24f)
+        ;
+
+        
+    
+    
+            var marker_490a25b3a3ef44c5ba0fb07ba9a2a6e0 = L.marker(
+                [59.2968, 17.9682],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_7c0fb9a573a74304be40d529fac59c26 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_490a25b3a3ef44c5ba0fb07ba9a2a6e0.setIcon(div_icon_7c0fb9a573a74304be40d529fac59c26);
+        
+    
+        var popup_bcf63dbe43e34029812701572653d721 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_7c4ed3264d51466b9a1d6c99c0b3768f = $(`<div id="html_7c4ed3264d51466b9a1d6c99c0b3768f" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:32Z brand: MikroTik</div>`)[0];
+            popup_bcf63dbe43e34029812701572653d721.setContent(html_7c4ed3264d51466b9a1d6c99c0b3768f);
+        
+
+        marker_490a25b3a3ef44c5ba0fb07ba9a2a6e0.bindPopup(popup_bcf63dbe43e34029812701572653d721)
+        ;
+
+        
+    
+    
+            var marker_161afb7a647b49b8ba680586805f58a8 = L.marker(
+                [59.54869853, 18.07458998],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_a386591399a04fe4ac2221060e8c8e7b = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_161afb7a647b49b8ba680586805f58a8.setIcon(div_icon_a386591399a04fe4ac2221060e8c8e7b);
+        
+    
+        var popup_5f3adf5929fd4281af4f9cb3ef400e36 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_ab9dcbe19d3d479abe7afdc8b588f4b3 = $(`<div id="html_ab9dcbe19d3d479abe7afdc8b588f4b3" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:07Z brand: nan</div>`)[0];
+            popup_5f3adf5929fd4281af4f9cb3ef400e36.setContent(html_ab9dcbe19d3d479abe7afdc8b588f4b3);
+        
+
+        marker_161afb7a647b49b8ba680586805f58a8.bindPopup(popup_5f3adf5929fd4281af4f9cb3ef400e36)
+        ;
+
+        
+    
+    
+            var marker_10f28e29d9234cd69a841d0dbbaf0f55 = L.marker(
+                [59.35578049, 17.97452436],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_c8795740be634f67bcd950a16e32b5ec = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_10f28e29d9234cd69a841d0dbbaf0f55.setIcon(div_icon_c8795740be634f67bcd950a16e32b5ec);
+        
+    
+        var popup_5721dba2a5cc42cfaf18dc784a3ab7f9 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_9afcce888625497a99858e8c2e0ba208 = $(`<div id="html_9afcce888625497a99858e8c2e0ba208" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:27Z brand: nan</div>`)[0];
+            popup_5721dba2a5cc42cfaf18dc784a3ab7f9.setContent(html_9afcce888625497a99858e8c2e0ba208);
+        
+
+        marker_10f28e29d9234cd69a841d0dbbaf0f55.bindPopup(popup_5721dba2a5cc42cfaf18dc784a3ab7f9)
+        ;
+
+        
+    
+    
+            var marker_d69e81a153b54820a5593e565356f5c9 = L.marker(
+                [59.42375345, 18.09997886],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_8b4df4c3aff645b092c2aa1bd7fa1705 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_d69e81a153b54820a5593e565356f5c9.setIcon(div_icon_8b4df4c3aff645b092c2aa1bd7fa1705);
+        
+    
+        var popup_1221786270584b87a130111253d6ac55 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_3e282b6e1928497fa84f3dc9ad9bd5b3 = $(`<div id="html_3e282b6e1928497fa84f3dc9ad9bd5b3" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:30Z brand: Mikrotik</div>`)[0];
+            popup_1221786270584b87a130111253d6ac55.setContent(html_3e282b6e1928497fa84f3dc9ad9bd5b3);
+        
+
+        marker_d69e81a153b54820a5593e565356f5c9.bindPopup(popup_1221786270584b87a130111253d6ac55)
+        ;
+
+        
+    
+    
+            var marker_f15d1144ca0f4be392198e7843437829 = L.marker(
+                [59.27152321, 18.0067497],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_9dcb0dc859414514a2301147b292942b = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_f15d1144ca0f4be392198e7843437829.setIcon(div_icon_9dcb0dc859414514a2301147b292942b);
+        
+    
+        var popup_2414c9de38b54d4b9079a2344cc186f6 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_13f68e331ade4b74a30910ea42394a79 = $(`<div id="html_13f68e331ade4b74a30910ea42394a79" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:33Z brand: MikroTik</div>`)[0];
+            popup_2414c9de38b54d4b9079a2344cc186f6.setContent(html_13f68e331ade4b74a30910ea42394a79);
+        
+
+        marker_f15d1144ca0f4be392198e7843437829.bindPopup(popup_2414c9de38b54d4b9079a2344cc186f6)
+        ;
+
+        
+    
+    
+            var marker_739552c9b56f493da01269c69e0b379f = L.marker(
+                [59.30704987, 18.08055997],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_4e35cd059aff4045a9c603969b782516 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_739552c9b56f493da01269c69e0b379f.setIcon(div_icon_4e35cd059aff4045a9c603969b782516);
+        
+    
+        var popup_93db6a16b3a84ac1a843ee615c3ada2d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_2557d0e59c6548d4ae9145d439da9126 = $(`<div id="html_2557d0e59c6548d4ae9145d439da9126" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-12T01:18:56Z brand: nan</div>`)[0];
+            popup_93db6a16b3a84ac1a843ee615c3ada2d.setContent(html_2557d0e59c6548d4ae9145d439da9126);
+        
+
+        marker_739552c9b56f493da01269c69e0b379f.bindPopup(popup_93db6a16b3a84ac1a843ee615c3ada2d)
+        ;
+
+        
+    
+    
+            var marker_3a0ca109854d43d88fe4d781ad16066e = L.marker(
+                [59.33490309, 18.0349258],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_0278a439570245c4ae7dfa03f4200819 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_3a0ca109854d43d88fe4d781ad16066e.setIcon(div_icon_0278a439570245c4ae7dfa03f4200819);
+        
+    
+        var popup_164dbb5f86b0483c81f9e3b740119e56 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_bd67691b138b4147b2bc42127194b943 = $(`<div id="html_bd67691b138b4147b2bc42127194b943" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:29Z brand: n-Fuse</div>`)[0];
+            popup_164dbb5f86b0483c81f9e3b740119e56.setContent(html_bd67691b138b4147b2bc42127194b943);
+        
+
+        marker_3a0ca109854d43d88fe4d781ad16066e.bindPopup(popup_164dbb5f86b0483c81f9e3b740119e56)
+        ;
+
+        
+    
+    
+            var marker_e7f7dccb1ce14a07b8b8fa268d2fdda9 = L.marker(
+                [59.35481619, 18.09437699],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_9c29283b15cd4f89a8a6f848cba121eb = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_e7f7dccb1ce14a07b8b8fa268d2fdda9.setIcon(div_icon_9c29283b15cd4f89a8a6f848cba121eb);
+        
+    
+        var popup_3e75f4411b664ed9949df2cc4798d339 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_a075467a4f744e48b72b3b8cbcee5473 = $(`<div id="html_a075467a4f744e48b72b3b8cbcee5473" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:34Z brand: Raspberry Pi based</div>`)[0];
+            popup_3e75f4411b664ed9949df2cc4798d339.setContent(html_a075467a4f744e48b72b3b8cbcee5473);
+        
+
+        marker_e7f7dccb1ce14a07b8b8fa268d2fdda9.bindPopup(popup_3e75f4411b664ed9949df2cc4798d339)
+        ;
+
+        
+    
+    
+            var marker_f388dc14c77d4540ac71010f07f73cba = L.marker(
+                [59.27099952, 18.04779088],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_384688eb50524e04b2f6c706f59b8c5d = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_f388dc14c77d4540ac71010f07f73cba.setIcon(div_icon_384688eb50524e04b2f6c706f59b8c5d);
+        
+    
+        var popup_f7f980d72ad84cb39db9e29117297091 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_a02e87b758ac49808570c61f78f64d43 = $(`<div id="html_a02e87b758ac49808570c61f78f64d43" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-03T05:56:40Z brand: MatchX</div>`)[0];
+            popup_f7f980d72ad84cb39db9e29117297091.setContent(html_a02e87b758ac49808570c61f78f64d43);
+        
+
+        marker_f388dc14c77d4540ac71010f07f73cba.bindPopup(popup_f7f980d72ad84cb39db9e29117297091)
+        ;
+
+        
+    
+    
+            var marker_a2f263205f2e459692cd6892bd6bc2ee = L.marker(
+                [59.88819777, 17.64934986],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_19dce2eeee654a7e9e516389c0d3da29 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_a2f263205f2e459692cd6892bd6bc2ee.setIcon(div_icon_19dce2eeee654a7e9e516389c0d3da29);
+        
+    
+        var popup_61042c123100432289074b4b51026edc = L.popup({"maxWidth": "100%"});
+
+        
+            var html_09c76c545d974916a979e27b6c478d6a = $(`<div id="html_09c76c545d974916a979e27b6c478d6a" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:51:57Z brand: The Things Industries</div>`)[0];
+            popup_61042c123100432289074b4b51026edc.setContent(html_09c76c545d974916a979e27b6c478d6a);
+        
+
+        marker_a2f263205f2e459692cd6892bd6bc2ee.bindPopup(popup_61042c123100432289074b4b51026edc)
+        ;
+
+        
+    
+    
+            var marker_41b484e736ac49188be941628cb26be4 = L.marker(
+                [61.77352571, 17.01261644],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_6c347f39badf4c50b7e9a55dea90e33a = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_41b484e736ac49188be941628cb26be4.setIcon(div_icon_6c347f39badf4c50b7e9a55dea90e33a);
+        
+    
+        var popup_a41107c297fa4777aaffdf617f0ff91e = L.popup({"maxWidth": "100%"});
+
+        
+            var html_da237225943d4df4bc2064ae358894a7 = $(`<div id="html_da237225943d4df4bc2064ae358894a7" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-12T09:04:37Z brand: The Things Industries</div>`)[0];
+            popup_a41107c297fa4777aaffdf617f0ff91e.setContent(html_da237225943d4df4bc2064ae358894a7);
+        
+
+        marker_41b484e736ac49188be941628cb26be4.bindPopup(popup_a41107c297fa4777aaffdf617f0ff91e)
+        ;
+
+        
+    
+    
+            var marker_cf60c44fdff94b8fa074eb5ec96d8000 = L.marker(
+                [61.28402805, 13.9236635],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_0bab13c4e3fb4d95916e880bc1baf6ae = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_cf60c44fdff94b8fa074eb5ec96d8000.setIcon(div_icon_0bab13c4e3fb4d95916e880bc1baf6ae);
+        
+    
+        var popup_beedc0971b364d07a79b4a05cca9c5c4 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_de226ef940bf447a9c6915110a373fe8 = $(`<div id="html_de226ef940bf447a9c6915110a373fe8" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:27Z brand: The Things Industries</div>`)[0];
+            popup_beedc0971b364d07a79b4a05cca9c5c4.setContent(html_de226ef940bf447a9c6915110a373fe8);
+        
+
+        marker_cf60c44fdff94b8fa074eb5ec96d8000.bindPopup(popup_beedc0971b364d07a79b4a05cca9c5c4)
+        ;
+
+        
+    
+    
+            var marker_aed0434501f14b189a230849a33582dd = L.marker(
+                [59.63275378, 16.54850642],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_2dfcc7984d434c93811f1efa340f45f1 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_aed0434501f14b189a230849a33582dd.setIcon(div_icon_2dfcc7984d434c93811f1efa340f45f1);
+        
+    
+        var popup_c49d24a402cb452ea16a7e931f6be0f8 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_6083159d94fa4571952dbf5f4df2613b = $(`<div id="html_6083159d94fa4571952dbf5f4df2613b" style="width: 100.0%; height: 100.0%;">last_seen: 2021-04-21T23:03:01Z brand: The Things Industries</div>`)[0];
+            popup_c49d24a402cb452ea16a7e931f6be0f8.setContent(html_6083159d94fa4571952dbf5f4df2613b);
+        
+
+        marker_aed0434501f14b189a230849a33582dd.bindPopup(popup_c49d24a402cb452ea16a7e931f6be0f8)
+        ;
+
+        
+    
+    
+            var marker_576c53a3c1f0434ba1bd807ff62684e6 = L.marker(
+                [59.21312771, 16.22137978],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_42af49ffec9849968fbad0fa06a907d1 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_576c53a3c1f0434ba1bd807ff62684e6.setIcon(div_icon_42af49ffec9849968fbad0fa06a907d1);
+        
+    
+        var popup_d577b94d17534a9592f774368103e6f6 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_36839677ae194049b92c655970599ad5 = $(`<div id="html_36839677ae194049b92c655970599ad5" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:08:47Z brand: The Things Industries</div>`)[0];
+            popup_d577b94d17534a9592f774368103e6f6.setContent(html_36839677ae194049b92c655970599ad5);
+        
+
+        marker_576c53a3c1f0434ba1bd807ff62684e6.bindPopup(popup_d577b94d17534a9592f774368103e6f6)
+        ;
+
+        
+    
+    
+            var marker_312562bb9945468c87742180998c2366 = L.marker(
+                [59.63832823, 18.23493513],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_ba65c40e79684f11a0744bb14143f2b0 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_312562bb9945468c87742180998c2366.setIcon(div_icon_ba65c40e79684f11a0744bb14143f2b0);
+        
+    
+        var popup_9d2ffb858cf14541a984b055db48eb71 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_6dafe3a4e6e14a77836832089fceef52 = $(`<div id="html_6dafe3a4e6e14a77836832089fceef52" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:30:28Z brand: The Things Industries</div>`)[0];
+            popup_9d2ffb858cf14541a984b055db48eb71.setContent(html_6dafe3a4e6e14a77836832089fceef52);
+        
+
+        marker_312562bb9945468c87742180998c2366.bindPopup(popup_9d2ffb858cf14541a984b055db48eb71)
+        ;
+
+        
+    
+    
+            var marker_e25ba1fe12e64aa5b47993e04e7ffd37 = L.marker(
+                [59.40537726, 17.94574503],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_a76986176a7a40059796a1dc1f7f6189 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_e25ba1fe12e64aa5b47993e04e7ffd37.setIcon(div_icon_a76986176a7a40059796a1dc1f7f6189);
+        
+    
+        var popup_c314ec6b6d754ab6b26525c683b7aeda = L.popup({"maxWidth": "100%"});
+
+        
+            var html_0dbb54f13a28480d84af7d333a5c233a = $(`<div id="html_0dbb54f13a28480d84af7d333a5c233a" style="width: 100.0%; height: 100.0%;">last_seen: nan brand: Tannak International</div>`)[0];
+            popup_c314ec6b6d754ab6b26525c683b7aeda.setContent(html_0dbb54f13a28480d84af7d333a5c233a);
+        
+
+        marker_e25ba1fe12e64aa5b47993e04e7ffd37.bindPopup(popup_c314ec6b6d754ab6b26525c683b7aeda)
+        ;
+
+        
+    
+    
+            var marker_eef5ff14916247a8867a38596f39aa69 = L.marker(
+                [59.40534826, 17.94573655],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_e816834d5e06474ea6a1fdcb20898d07 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_eef5ff14916247a8867a38596f39aa69.setIcon(div_icon_e816834d5e06474ea6a1fdcb20898d07);
+        
+    
+        var popup_a11d1d913ce647a493d913af7b4746c0 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_6ce6bef35c784458b498e81683eebd8e = $(`<div id="html_6ce6bef35c784458b498e81683eebd8e" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:12Z brand: VestiTech</div>`)[0];
+            popup_a11d1d913ce647a493d913af7b4746c0.setContent(html_6ce6bef35c784458b498e81683eebd8e);
+        
+
+        marker_eef5ff14916247a8867a38596f39aa69.bindPopup(popup_a11d1d913ce647a493d913af7b4746c0)
+        ;
+
+        
+    
+    
+            var marker_addac9040b764be397fa071992b2cf70 = L.marker(
+                [61.79646302, 16.55854927],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_0a6e0b0a36b344179942cacfce02a5ba = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_addac9040b764be397fa071992b2cf70.setIcon(div_icon_0a6e0b0a36b344179942cacfce02a5ba);
+        
+    
+        var popup_393deba5526847738280f9e189591f74 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c1eebc70d7ac4e02a5d6d6d191fe2b52 = $(`<div id="html_c1eebc70d7ac4e02a5d6d6d191fe2b52" style="width: 100.0%; height: 100.0%;">last_seen: 2021-04-30T14:45:39Z brand: RAKwireless</div>`)[0];
+            popup_393deba5526847738280f9e189591f74.setContent(html_c1eebc70d7ac4e02a5d6d6d191fe2b52);
+        
+
+        marker_addac9040b764be397fa071992b2cf70.bindPopup(popup_393deba5526847738280f9e189591f74)
+        ;
+
+        
+    
+    
+            var marker_ed851a8fa8074f6198b1d415380a45d5 = L.marker(
+                [59.63891587, 17.7619614],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_ad86236eb7324f8590121eb5f60df320 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_ed851a8fa8074f6198b1d415380a45d5.setIcon(div_icon_ad86236eb7324f8590121eb5f60df320);
+        
+    
+        var popup_e583700876a147fab48543c7d7e0c2f4 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_5a65afd6c0fc44bb97c200abe5df2395 = $(`<div id="html_5a65afd6c0fc44bb97c200abe5df2395" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:14Z brand: RAKwireless</div>`)[0];
+            popup_e583700876a147fab48543c7d7e0c2f4.setContent(html_5a65afd6c0fc44bb97c200abe5df2395);
+        
+
+        marker_ed851a8fa8074f6198b1d415380a45d5.bindPopup(popup_e583700876a147fab48543c7d7e0c2f4)
+        ;
+
+        
+    
+    
+            var marker_5ca96537d6854e85b1027e7a7fd05487 = L.marker(
+                [59.44103303, 13.42785935],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_e93955c10f5e4269ad42fbe5297fee46 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_5ca96537d6854e85b1027e7a7fd05487.setIcon(div_icon_e93955c10f5e4269ad42fbe5297fee46);
+        
+    
+        var popup_ccf34c0e20f74749bec9a4b9f26d55b9 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_e1c4ccdd431d438282cc4f4cde8fa2a1 = $(`<div id="html_e1c4ccdd431d438282cc4f4cde8fa2a1" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:18Z brand: Dragino</div>`)[0];
+            popup_ccf34c0e20f74749bec9a4b9f26d55b9.setContent(html_e1c4ccdd431d438282cc4f4cde8fa2a1);
+        
+
+        marker_5ca96537d6854e85b1027e7a7fd05487.bindPopup(popup_ccf34c0e20f74749bec9a4b9f26d55b9)
+        ;
+
+        
+    
+    
+            var marker_57632a7716a04cf2918b98b334818e37 = L.marker(
+                [60.6546516418457, 17.159639358520508],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_f27181e9b0964e00bee462a4e5241c8d = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_57632a7716a04cf2918b98b334818e37.setIcon(div_icon_f27181e9b0964e00bee462a4e5241c8d);
+        
+    
+        var popup_fba444cbaf744142bac820cecf6596c4 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_1c845fe2b2804ce5b89d5e2e5e5dbf4b = $(`<div id="html_1c845fe2b2804ce5b89d5e2e5e5dbf4b" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-03T11:51:07Z brand: Dragino</div>`)[0];
+            popup_fba444cbaf744142bac820cecf6596c4.setContent(html_1c845fe2b2804ce5b89d5e2e5e5dbf4b);
+        
+
+        marker_57632a7716a04cf2918b98b334818e37.bindPopup(popup_fba444cbaf744142bac820cecf6596c4)
+        ;
+
+        
+    
+    
+            var marker_f00e007993c74a619fd70a2134a864f4 = L.marker(
+                [61.41132304, 16.65731607],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_bf964b5c8d33414cb41a24a8f9c6a37b = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_f00e007993c74a619fd70a2134a864f4.setIcon(div_icon_bf964b5c8d33414cb41a24a8f9c6a37b);
+        
+    
+        var popup_dc0442eb886b418d87b4c93affd57119 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_16a0471f7f244865973e15897e459ad8 = $(`<div id="html_16a0471f7f244865973e15897e459ad8" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:23Z brand: Dragino</div>`)[0];
+            popup_dc0442eb886b418d87b4c93affd57119.setContent(html_16a0471f7f244865973e15897e459ad8);
+        
+
+        marker_f00e007993c74a619fd70a2134a864f4.bindPopup(popup_dc0442eb886b418d87b4c93affd57119)
+        ;
+
+        
+    
+    
+            var marker_dc64e2eb9ec84f6a9994be63bcd49a19 = L.marker(
+                [59.42996751, 18.04306472],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_3e6c9f9ab41d440bae6ccc0ff059e871 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_dc64e2eb9ec84f6a9994be63bcd49a19.setIcon(div_icon_3e6c9f9ab41d440bae6ccc0ff059e871);
+        
+    
+        var popup_425c84de3aea426382048c6b80ec2df4 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_de7117b7033843c1b9f3655c05bb6855 = $(`<div id="html_de7117b7033843c1b9f3655c05bb6855" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:29Z brand: Dragino</div>`)[0];
+            popup_425c84de3aea426382048c6b80ec2df4.setContent(html_de7117b7033843c1b9f3655c05bb6855);
+        
+
+        marker_dc64e2eb9ec84f6a9994be63bcd49a19.bindPopup(popup_425c84de3aea426382048c6b80ec2df4)
+        ;
+
+        
+    
+    
+            var marker_42280dc6b5f446f2953dc2e3bee8983e = L.marker(
+                [59.4527611, 17.98044405],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_2e6f8c67279d432f93dd97851b9baac1 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_42280dc6b5f446f2953dc2e3bee8983e.setIcon(div_icon_2e6f8c67279d432f93dd97851b9baac1);
+        
+    
+        var popup_9ae90f17bdfc4260b27e5a8f7111994a = L.popup({"maxWidth": "100%"});
+
+        
+            var html_51d11d3277f4472ea9f7a4fe39172b3c = $(`<div id="html_51d11d3277f4472ea9f7a4fe39172b3c" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:07Z brand: Dragino</div>`)[0];
+            popup_9ae90f17bdfc4260b27e5a8f7111994a.setContent(html_51d11d3277f4472ea9f7a4fe39172b3c);
+        
+
+        marker_42280dc6b5f446f2953dc2e3bee8983e.bindPopup(popup_9ae90f17bdfc4260b27e5a8f7111994a)
+        ;
+
+        
+    
+    
+            var marker_352fb4fe01a34496ab3207727d59af09 = L.marker(
+                [59.6083781, 17.47524846],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_b9aebeed5fd54afba86f57de35a028e6 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_352fb4fe01a34496ab3207727d59af09.setIcon(div_icon_b9aebeed5fd54afba86f57de35a028e6);
+        
+    
+        var popup_0d740ec0dc9e46fd8cab70e39cedc27b = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b841d79926d144ccb26ce46ed7790b31 = $(`<div id="html_b841d79926d144ccb26ce46ed7790b31" style="width: 100.0%; height: 100.0%;">last_seen: 2021-04-17T17:03:55Z brand: Dragino</div>`)[0];
+            popup_0d740ec0dc9e46fd8cab70e39cedc27b.setContent(html_b841d79926d144ccb26ce46ed7790b31);
+        
+
+        marker_352fb4fe01a34496ab3207727d59af09.bindPopup(popup_0d740ec0dc9e46fd8cab70e39cedc27b)
+        ;
+
+        
+    
+    
+            var marker_709680ff7904477894ef490f46789dce = L.marker(
+                [61.77350302, 17.0126401],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_018199332ca04675b5d3676deecede8b = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_709680ff7904477894ef490f46789dce.setIcon(div_icon_018199332ca04675b5d3676deecede8b);
+        
+    
+        var popup_cb9f831727ad40a7909a16ceb31b22e3 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_944619d6f258443f836b829d919db1d1 = $(`<div id="html_944619d6f258443f836b829d919db1d1" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:28Z brand: RAKwireless</div>`)[0];
+            popup_cb9f831727ad40a7909a16ceb31b22e3.setContent(html_944619d6f258443f836b829d919db1d1);
+        
+
+        marker_709680ff7904477894ef490f46789dce.bindPopup(popup_cb9f831727ad40a7909a16ceb31b22e3)
+        ;
+
+        
+    
+    
+            var marker_8c41c25147cf4bdab4bc5e5197101730 = L.marker(
+                [59.309922, 18.113887],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_63cb271962384d648e911ad63990aa8e = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_8c41c25147cf4bdab4bc5e5197101730.setIcon(div_icon_63cb271962384d648e911ad63990aa8e);
+        
+    
+        var popup_e349080131934045b8ef8c6b1d7c69c0 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_5f989d385dce495da3d014f5a337d600 = $(`<div id="html_5f989d385dce495da3d014f5a337d600" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:33Z brand: Raspberry Pi based</div>`)[0];
+            popup_e349080131934045b8ef8c6b1d7c69c0.setContent(html_5f989d385dce495da3d014f5a337d600);
+        
+
+        marker_8c41c25147cf4bdab4bc5e5197101730.bindPopup(popup_e349080131934045b8ef8c6b1d7c69c0)
+        ;
+
+        
+    
+    
+            var marker_310e006e1eae42ff88ed83e6cf87671f = L.marker(
+                [59.39963107, 17.87000987],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_203090a46c5e480e9e0764d1436f47f0 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_310e006e1eae42ff88ed83e6cf87671f.setIcon(div_icon_203090a46c5e480e9e0764d1436f47f0);
+        
+    
+        var popup_38aef1c0c24e4c78afb8d98d3d0169fd = L.popup({"maxWidth": "100%"});
+
+        
+            var html_f8613344bb71425581668c05697cad0e = $(`<div id="html_f8613344bb71425581668c05697cad0e" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:24Z brand: Raspberry Pi based</div>`)[0];
+            popup_38aef1c0c24e4c78afb8d98d3d0169fd.setContent(html_f8613344bb71425581668c05697cad0e);
+        
+
+        marker_310e006e1eae42ff88ed83e6cf87671f.bindPopup(popup_38aef1c0c24e4c78afb8d98d3d0169fd)
+        ;
+
+        
+    
+    
+            var marker_a20abef54ed640be842c6f92ba50ad6b = L.marker(
+                [59.238255, 17.965618],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_404ac83fd771406eaeb2b0691505d2f9 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_a20abef54ed640be842c6f92ba50ad6b.setIcon(div_icon_404ac83fd771406eaeb2b0691505d2f9);
+        
+    
+        var popup_88cee40b99d44c8abf4369f9ce975233 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_175f863268444e70b5de72b0271672c8 = $(`<div id="html_175f863268444e70b5de72b0271672c8" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:24Z brand: Raspberry Pi based</div>`)[0];
+            popup_88cee40b99d44c8abf4369f9ce975233.setContent(html_175f863268444e70b5de72b0271672c8);
+        
+
+        marker_a20abef54ed640be842c6f92ba50ad6b.bindPopup(popup_88cee40b99d44c8abf4369f9ce975233)
+        ;
+
+        
+    
+    
+            var marker_c573497cce3642c885acc7e59393d26b = L.marker(
+                [59.41129549, 13.51004899],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_fecc1166e5c84349ab2d0fc2fdac89cb = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_c573497cce3642c885acc7e59393d26b.setIcon(div_icon_fecc1166e5c84349ab2d0fc2fdac89cb);
+        
+    
+        var popup_d23272c2d2844977a7a748ba58d6eb6c = L.popup({"maxWidth": "100%"});
+
+        
+            var html_4908524e527b4180a52ffe5a13e8013a = $(`<div id="html_4908524e527b4180a52ffe5a13e8013a" style="width: 100.0%; height: 100.0%;">last_seen: 2021-04-22T16:13:13Z brand: Raspberry Pi based</div>`)[0];
+            popup_d23272c2d2844977a7a748ba58d6eb6c.setContent(html_4908524e527b4180a52ffe5a13e8013a);
+        
+
+        marker_c573497cce3642c885acc7e59393d26b.bindPopup(popup_d23272c2d2844977a7a748ba58d6eb6c)
+        ;
+
+        
+    
+    
+            var marker_ddaa87a394f243898ca4753128d1c749 = L.marker(
+                [60.67985331, 17.1699362],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_1ba901bbc67b4dccb9060b182fbd4062 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_ddaa87a394f243898ca4753128d1c749.setIcon(div_icon_1ba901bbc67b4dccb9060b182fbd4062);
+        
+    
+        var popup_5a2e9d7ef53540f688cf3b0e0d007231 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_2ae9d4eb297e4fa5a1bfe2b4152398e9 = $(`<div id="html_2ae9d4eb297e4fa5a1bfe2b4152398e9" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:33Z brand: Raspberry Pi based</div>`)[0];
+            popup_5a2e9d7ef53540f688cf3b0e0d007231.setContent(html_2ae9d4eb297e4fa5a1bfe2b4152398e9);
+        
+
+        marker_ddaa87a394f243898ca4753128d1c749.bindPopup(popup_5a2e9d7ef53540f688cf3b0e0d007231)
+        ;
+
+        
+    
+    
+            var marker_6d0015c4501149179d1c88822e766c13 = L.marker(
+                [59.37398787, 18.01080287],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_0c59cc6f99d94e5cb0d1854b9f4b524c = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_6d0015c4501149179d1c88822e766c13.setIcon(div_icon_0c59cc6f99d94e5cb0d1854b9f4b524c);
+        
+    
+        var popup_93fd007fd5ba41c898c169e5c11aea08 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_55ebc31d63b64da987469046d907cc75 = $(`<div id="html_55ebc31d63b64da987469046d907cc75" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:26Z brand: Raspberry Pi based</div>`)[0];
+            popup_93fd007fd5ba41c898c169e5c11aea08.setContent(html_55ebc31d63b64da987469046d907cc75);
+        
+
+        marker_6d0015c4501149179d1c88822e766c13.bindPopup(popup_93fd007fd5ba41c898c169e5c11aea08)
+        ;
+
+        
+    
+    
+            var marker_e8b53153867c4009a214af6ce977b711 = L.marker(
+                [59.375396239550696, 18.08698163585666],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_17f1dae7ddf9420f93359371327130e1 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_e8b53153867c4009a214af6ce977b711.setIcon(div_icon_17f1dae7ddf9420f93359371327130e1);
+        
+    
+        var popup_cb4bf21915cd495980619271d779777d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c1d2c0c79ff146ad9dfda9a39dd9848b = $(`<div id="html_c1d2c0c79ff146ad9dfda9a39dd9848b" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:13Z brand: Raspberry Pi based</div>`)[0];
+            popup_cb4bf21915cd495980619271d779777d.setContent(html_c1d2c0c79ff146ad9dfda9a39dd9848b);
+        
+
+        marker_e8b53153867c4009a214af6ce977b711.bindPopup(popup_cb4bf21915cd495980619271d779777d)
+        ;
+
+        
+    
+    
+            var marker_980b36a9974d4b309f2e43f6d8d53ea8 = L.marker(
+                [59.42916919, 17.82482319],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_209a7061ccc3414c94d364b658f1aaee = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_980b36a9974d4b309f2e43f6d8d53ea8.setIcon(div_icon_209a7061ccc3414c94d364b658f1aaee);
+        
+    
+        var popup_dbdff755131142e6b69ee6b8ecb57f47 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d00329d235ce45c3b60402ba7a7306d6 = $(`<div id="html_d00329d235ce45c3b60402ba7a7306d6" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:28Z brand: Raspberry Pi based</div>`)[0];
+            popup_dbdff755131142e6b69ee6b8ecb57f47.setContent(html_d00329d235ce45c3b60402ba7a7306d6);
+        
+
+        marker_980b36a9974d4b309f2e43f6d8d53ea8.bindPopup(popup_dbdff755131142e6b69ee6b8ecb57f47)
+        ;
+
+        
+    
+    
+            var marker_8e812e51b39e4b2e82c437b7d08aedf0 = L.marker(
+                [59.95414039, 17.54236304],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_9028f2584c18431f82f07bd5c744fc7b = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_8e812e51b39e4b2e82c437b7d08aedf0.setIcon(div_icon_9028f2584c18431f82f07bd5c744fc7b);
+        
+    
+        var popup_3db926cfe28742fabcf0b2937730c0b9 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_55c27e43d00044379a0c06c7c0688621 = $(`<div id="html_55c27e43d00044379a0c06c7c0688621" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:25Z brand: Laird</div>`)[0];
+            popup_3db926cfe28742fabcf0b2937730c0b9.setContent(html_55c27e43d00044379a0c06c7c0688621);
+        
+
+        marker_8e812e51b39e4b2e82c437b7d08aedf0.bindPopup(popup_3db926cfe28742fabcf0b2937730c0b9)
+        ;
+
+        
+    
+    
+            var marker_ff584ff5222641ec977765e69692560f = L.marker(
+                [59.31161534, 18.07602614],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_26b7f374c45d4c0abbb005e27b843e87 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_ff584ff5222641ec977765e69692560f.setIcon(div_icon_26b7f374c45d4c0abbb005e27b843e87);
+        
+    
+        var popup_ef2284f99a8b40bbb606c44f0727d616 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_f950c18ad41d4ad6a16ca2e74260ad74 = $(`<div id="html_f950c18ad41d4ad6a16ca2e74260ad74" style="width: 100.0%; height: 100.0%;">last_seen: 2021-04-15T04:15:43Z brand: Laird</div>`)[0];
+            popup_ef2284f99a8b40bbb606c44f0727d616.setContent(html_f950c18ad41d4ad6a16ca2e74260ad74);
+        
+
+        marker_ff584ff5222641ec977765e69692560f.bindPopup(popup_ef2284f99a8b40bbb606c44f0727d616)
+        ;
+
+        
+    
+    
+            var marker_0b40b38c308947a7acdf1d7d388e40cf = L.marker(
+                [60.60981727, 15.62370892],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_13b25320b1804f8faeb58da3bef19977 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_0b40b38c308947a7acdf1d7d388e40cf.setIcon(div_icon_13b25320b1804f8faeb58da3bef19977);
+        
+    
+        var popup_a245978ee3b54bc1aa91d2522c816f81 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_67c8c4f8c1c04d56a1093bf370e395e8 = $(`<div id="html_67c8c4f8c1c04d56a1093bf370e395e8" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:52:10Z brand: nan</div>`)[0];
+            popup_a245978ee3b54bc1aa91d2522c816f81.setContent(html_67c8c4f8c1c04d56a1093bf370e395e8);
+        
+
+        marker_0b40b38c308947a7acdf1d7d388e40cf.bindPopup(popup_a245978ee3b54bc1aa91d2522c816f81)
+        ;
+
+        
+    
+    
+            var marker_d56b53d6120b402d8be74b4137d5e6d2 = L.marker(
+                [60.38985191, 17.4211827],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_fa2ae9a348704c5f8089a7f934b6102f = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_d56b53d6120b402d8be74b4137d5e6d2.setIcon(div_icon_fa2ae9a348704c5f8089a7f934b6102f);
+        
+    
+        var popup_2d78f845332949b9b7bb47c1e8dfc01c = L.popup({"maxWidth": "100%"});
+
+        
+            var html_83be3d86d6ba49edb5079ef400660372 = $(`<div id="html_83be3d86d6ba49edb5079ef400660372" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:17Z brand: RAKwireless</div>`)[0];
+            popup_2d78f845332949b9b7bb47c1e8dfc01c.setContent(html_83be3d86d6ba49edb5079ef400660372);
+        
+
+        marker_d56b53d6120b402d8be74b4137d5e6d2.bindPopup(popup_2d78f845332949b9b7bb47c1e8dfc01c)
+        ;
+
+        
+    
+    
+            var marker_2ac9150907b6492c9366af2b15f3f7b0 = L.marker(
+                [59.41790468, 17.66293552],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_45fdafe2c7974b95b99a79ef59cdd88c = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_2ac9150907b6492c9366af2b15f3f7b0.setIcon(div_icon_45fdafe2c7974b95b99a79ef59cdd88c);
+        
+    
+        var popup_e8a7467ef7d94166b6b86349c3d167fc = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b9716ba0f3c54d79a43326cdfe53d741 = $(`<div id="html_b9716ba0f3c54d79a43326cdfe53d741" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:35Z brand: Lorix</div>`)[0];
+            popup_e8a7467ef7d94166b6b86349c3d167fc.setContent(html_b9716ba0f3c54d79a43326cdfe53d741);
+        
+
+        marker_2ac9150907b6492c9366af2b15f3f7b0.bindPopup(popup_e8a7467ef7d94166b6b86349c3d167fc)
+        ;
+
+        
+    
+    
+            var marker_1f57aa6f2c7b414a9ee9388cd5f84413 = L.marker(
+                [60.89220185, 14.37481712],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_074434a8a66e46f79d2e9e1b236c0ae0 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_1f57aa6f2c7b414a9ee9388cd5f84413.setIcon(div_icon_074434a8a66e46f79d2e9e1b236c0ae0);
+        
+    
+        var popup_6ae7d01443d94568a8a86de6578548bc = L.popup({"maxWidth": "100%"});
+
+        
+            var html_ee0efbc93ca048c48c25ac610bb91790 = $(`<div id="html_ee0efbc93ca048c48c25ac610bb91790" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:33Z brand: nan</div>`)[0];
+            popup_6ae7d01443d94568a8a86de6578548bc.setContent(html_ee0efbc93ca048c48c25ac610bb91790);
+        
+
+        marker_1f57aa6f2c7b414a9ee9388cd5f84413.bindPopup(popup_6ae7d01443d94568a8a86de6578548bc)
+        ;
+
+        
+    
+    
+            var marker_05db31099c2f4a909a85fb25e1488456 = L.marker(
+                [60.88072853, 14.38528352],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_1cc7cdb27ed34f4fa8b6a5eab2d342aa = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_05db31099c2f4a909a85fb25e1488456.setIcon(div_icon_1cc7cdb27ed34f4fa8b6a5eab2d342aa);
+        
+    
+        var popup_83f6162f643247dba0cab9950a7a57ec = L.popup({"maxWidth": "100%"});
+
+        
+            var html_a6339985b6124947ba795fad8a9e82ce = $(`<div id="html_a6339985b6124947ba795fad8a9e82ce" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:33Z brand: nan</div>`)[0];
+            popup_83f6162f643247dba0cab9950a7a57ec.setContent(html_a6339985b6124947ba795fad8a9e82ce);
+        
+
+        marker_05db31099c2f4a909a85fb25e1488456.bindPopup(popup_83f6162f643247dba0cab9950a7a57ec)
+        ;
+
+        
+    
+    
+            var marker_04c51844070344cb808f09249a7ca98f = L.marker(
+                [59.35926447, 18.0003232],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_3fdd9f49f7d144a9bd4527036931f92a = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_04c51844070344cb808f09249a7ca98f.setIcon(div_icon_3fdd9f49f7d144a9bd4527036931f92a);
+        
+    
+        var popup_8fb74babcc04434c8d2806163a76c0c2 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_ae8062a669a1458b9e0174388590b1e3 = $(`<div id="html_ae8062a669a1458b9e0174388590b1e3" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:22Z brand: Raspberry Pi based</div>`)[0];
+            popup_8fb74babcc04434c8d2806163a76c0c2.setContent(html_ae8062a669a1458b9e0174388590b1e3);
+        
+
+        marker_04c51844070344cb808f09249a7ca98f.bindPopup(popup_8fb74babcc04434c8d2806163a76c0c2)
+        ;
+
+        
+    
+    
+            var marker_8a421528461249b096b353f3667adc93 = L.marker(
+                [59.3708158, 17.20866635],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_6cf1c6f444874f8c9cafef1f88353b57 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_8a421528461249b096b353f3667adc93.setIcon(div_icon_6cf1c6f444874f8c9cafef1f88353b57);
+        
+    
+        var popup_83feb6cf78ed4d2a8b78595be6005e41 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_87e4168825d8476b860cbb227bf6bf1c = $(`<div id="html_87e4168825d8476b860cbb227bf6bf1c" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:25Z brand: Raspberry Pi based</div>`)[0];
+            popup_83feb6cf78ed4d2a8b78595be6005e41.setContent(html_87e4168825d8476b860cbb227bf6bf1c);
+        
+
+        marker_8a421528461249b096b353f3667adc93.bindPopup(popup_83feb6cf78ed4d2a8b78595be6005e41)
+        ;
+
+        
+    
+    
+            var marker_3d48128c493748a39268f74af093c597 = L.marker(
+                [59.60596856, 16.55294575],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_a6f9b602bdaf405888b6a83ef1a78dcc = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_3d48128c493748a39268f74af093c597.setIcon(div_icon_a6f9b602bdaf405888b6a83ef1a78dcc);
+        
+    
+        var popup_7b73b346eb4c4ed0b485afbb80212566 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_8858084ddd8941c495ecff7312d794bf = $(`<div id="html_8858084ddd8941c495ecff7312d794bf" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:32Z brand: Laird</div>`)[0];
+            popup_7b73b346eb4c4ed0b485afbb80212566.setContent(html_8858084ddd8941c495ecff7312d794bf);
+        
+
+        marker_3d48128c493748a39268f74af093c597.bindPopup(popup_7b73b346eb4c4ed0b485afbb80212566)
+        ;
+
+        
+    
+    
+            var marker_b0a21a82d8c747ba86974d2ba5fa1202 = L.marker(
+                [61.70998317, 16.63796251],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_340dbd79e72a454e9460b8f8879674f9 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_b0a21a82d8c747ba86974d2ba5fa1202.setIcon(div_icon_340dbd79e72a454e9460b8f8879674f9);
+        
+    
+        var popup_6f4f1d1276fd4ef1a2f65a7f5a27b827 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_62355618790c45b9b47cd936b2b58c38 = $(`<div id="html_62355618790c45b9b47cd936b2b58c38" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:27Z brand: The Things Products</div>`)[0];
+            popup_6f4f1d1276fd4ef1a2f65a7f5a27b827.setContent(html_62355618790c45b9b47cd936b2b58c38);
+        
+
+        marker_b0a21a82d8c747ba86974d2ba5fa1202.bindPopup(popup_6f4f1d1276fd4ef1a2f65a7f5a27b827)
+        ;
+
+        
+    
+    
+            var marker_9bda9ba3ebf54f9e829f0dde5cc649b8 = L.marker(
+                [59.52188, 17.848204],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_a6aa7d77880e41f4bb4b79ff5f5d3909 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_9bda9ba3ebf54f9e829f0dde5cc649b8.setIcon(div_icon_a6aa7d77880e41f4bb4b79ff5f5d3909);
+        
+    
+        var popup_681c7c2c59534cadb65de453fa3ed0e9 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_56c7c9d611264bd8ae0d4d3cf3da8b8e = $(`<div id="html_56c7c9d611264bd8ae0d4d3cf3da8b8e" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:09Z brand: Raspberry Pi based</div>`)[0];
+            popup_681c7c2c59534cadb65de453fa3ed0e9.setContent(html_56c7c9d611264bd8ae0d4d3cf3da8b8e);
+        
+
+        marker_9bda9ba3ebf54f9e829f0dde5cc649b8.bindPopup(popup_681c7c2c59534cadb65de453fa3ed0e9)
+        ;
+
+        
+    
+    
+            var marker_bb839bc7baad4cb481c66ee21862d211 = L.marker(
+                [59.39828926, 17.89548336],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_293b401f19e34076ad8013d4ee737ac7 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_bb839bc7baad4cb481c66ee21862d211.setIcon(div_icon_293b401f19e34076ad8013d4ee737ac7);
+        
+    
+        var popup_2822a7e51055485eb917d5d5a9a3ebb8 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_feca7caad7694cb39722b9b79e5fcc4b = $(`<div id="html_feca7caad7694cb39722b9b79e5fcc4b" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:33Z brand: The Things Products</div>`)[0];
+            popup_2822a7e51055485eb917d5d5a9a3ebb8.setContent(html_feca7caad7694cb39722b9b79e5fcc4b);
+        
+
+        marker_bb839bc7baad4cb481c66ee21862d211.bindPopup(popup_2822a7e51055485eb917d5d5a9a3ebb8)
+        ;
+
+        
+    
+    
+            var marker_fc30998e997a4f2d92f6188f8b10baa9 = L.marker(
+                [59.4819448, 17.9251273],
+                {}
+            ).addTo(map_4fcc92743ec44c5eb3d5792a2080e14f);
+        
+    
+            var div_icon_36ac77b5b6ba4404bff96bb4b6ba9b5e = L.divIcon({"className": "empty", "html": "\u003cdiv style=\"font-family: courier new; color: blue\"\u003e\u003cimg src=\"gateway.png\" style=\"width:40px;height:40px\"\u003e\u003c/div\u003e"});
+            marker_fc30998e997a4f2d92f6188f8b10baa9.setIcon(div_icon_36ac77b5b6ba4404bff96bb4b6ba9b5e);
+        
+    
+        var popup_c5602e27dd2f40e09b6df815d4442a31 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_554f45685cdd4d058a508d8142429fe9 = $(`<div id="html_554f45685cdd4d058a508d8142429fe9" style="width: 100.0%; height: 100.0%;">last_seen: 2021-05-13T07:54:24Z brand: Raspberry Pi based</div>`)[0];
+            popup_c5602e27dd2f40e09b6df815d4442a31.setContent(html_554f45685cdd4d058a508d8142429fe9);
+        
+
+        marker_fc30998e997a4f2d92f6188f8b10baa9.bindPopup(popup_c5602e27dd2f40e09b6df815d4442a31)
+        ;
+
+        
+    
+</script>
